@@ -31,7 +31,7 @@ int main(){
 			   pokemon = "pikachu";
 			   cout << pokemon << ", an electric type & This is hard starter to choose from"; 
 			   break;
-			 }
+			 }}
 
 
     return 0;
