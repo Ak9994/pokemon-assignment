@@ -8,7 +8,7 @@ int main(){
     //start
     cout << "you are entering the world of pokemon , please enter your name:" << player_name << endl;
 
-    cout << Professor Oak here , Welcome " << player_name << "And what a nice name!" << "\n" << "let me hand you ur first pokemon" << "\n";
+    cout << "Professor Oak here , Welcome " << player_name << "And what a nice name!" << "\n" << "let me hand you ur first pokemon" << "\n";
 
     //select
 	cout << "You can choose one of the following Pokémon:" << "\n";
