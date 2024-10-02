@@ -2,7 +2,7 @@
 using namespace std;
 
 int main(){
-    string player_name;
+    string player_name,pokemon;
     int select;
     
     //start
@@ -18,10 +18,20 @@ int main(){
 
     //Choice
 	switch(select){
-		case 1: { cout << "Treecko , is a grass type pokemon"; break; }
-		case 2: { cout << "Torchic , is a fire & Fighting type pokemon"; break; }
-		case 3: { cout << "Mudkip , is a water and ground time"; break; }
-		default: { cout << "Pikachu , is the default selection"; }
+		case 1: { pokemon = "Treecko"; 
+			  cout << pokemon << ", is a grass type pokemon"; 
+			  break; }
+		case 2: { pokemon = "Torchic";
+			  cout << pokemon << ", is a fire & Fighting type pokemon"; 
+			  break; }
+		case 3: { pokemon = "Mudkip";
+			  cout << pokemon << ", is a water and ground time"; 
+			  break; }
+		default: { cout << "guess u are late" << "\n";
+			   pokemon = "pikachu";
+			   cout << pokemon << "This is hard starter to choose from"; 
+			   break;
+			 }
 
 
     return 0;
