@@ -13,7 +13,7 @@ int main(){
     //select
 	cout << "You can choose one of the following Pokémon:" << "\n";
 	cout << "1. Treecko \n  2. Torchic \n 3. Mudkip \n";
-	cout << "Which Pokémon would you like to choose? Enter the number: ";
+	cout << "Which Pokémon would you like to choose? Make your choice: ";
     cin >> select;
 
     //Choice
