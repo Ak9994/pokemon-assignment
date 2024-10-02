@@ -19,17 +19,17 @@ int main(){
     //Choice
 	switch(select){
 		case 1: { pokemon = "Treecko"; 
-			  cout << pokemon << ", is a grass type pokemon"; 
+			  cout << pokemon << ", is a grass type pokemon! easy choice as a starter"; 
 			  break; }
 		case 2: { pokemon = "Torchic";
-			  cout << pokemon << ", is a fire & Fighting type pokemon"; 
+			  cout << pokemon << ", is a fire & Fighting type pokemon! Good Choice for mildly experienced trainers"; 
 			  break; }
 		case 3: { pokemon = "Mudkip";
-			  cout << pokemon << ", is a water and ground time"; 
+			  cout << pokemon << ", is a water & ground type! Good Choice for starters"; 
 			  break; }
-		default: { cout << "guess u are late" << "\n";
+		default: { cout << "guess u are late & no starters are left , Just kidding ;) there is one left" << "\n";
 			   pokemon = "pikachu";
-			   cout << pokemon << "This is hard starter to choose from"; 
+			   cout << pokemon << ", an electric type & This is hard starter to choose from"; 
 			   break;
 			 }
 
