@@ -1,9 +1,17 @@
 #include<iostream>
 using namespace std;
 
+enum pokemon_choice{
+	Treecko = 1,
+	Torchic,
+	Mudkip
+};
+
 int main(){
-    string player_name,pokemon;
+    string player_name;
     int select;
+
+	enum pokemon_choice pokemon;
     
     //start
     cout << "you are entering the world of pokemon , please enter your name:" << player_name << endl;
@@ -18,22 +26,15 @@ int main(){
 
     //Choice
 	switch(select){
-		case 1: { pokemon = "Treecko"; 
-			  cout << pokemon << ", is a grass type pokemon! easy choice as a starter"; 
-			  break; }
-		case 2: { pokemon = "Torchic";
-			  cout << pokemon << ", is a fire & Fighting type pokemon! Good Choice for mildly experienced trainers"; 
-			  break; }
-		case 3: { pokemon = "Mudkip";
-			  cout << pokemon << ", is a water & ground type! Good Choice for starters"; 
-			  break; }
+		case 1: { cout << pokemon << ", is a grass type pokemon! easy choice as a starter"; 
+			  	  break; }
+		case 2: { cout << pokemon << ", is a fire & Fighting type pokemon! Good Choice for mildly experienced trainers"; 
+			      break; }
+		case 3: { cout << pokemon << ", is a water & ground type! Good Choice for starters"; 
+			      break; }
 		default: { cout << "guess u are late & no starters are left , Just kidding ;) there is one left" << "\n";
-			   pokemon = "pikachu";
-			   cout << pokemon << ", an electric type & This is hard starter to choose from"; 
-			   break;
-			 }}
-
-
-    return 0;
+			       cout << pokemon << ", an electric type & This is hard starter to choose from"; 
+			       break;}
+    }
+	return 0;
 }
-
