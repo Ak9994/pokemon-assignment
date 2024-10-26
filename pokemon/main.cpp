@@ -6,20 +6,6 @@ void waitforinput(){
     cin.get();
 }
 
-enum class pokemon_choice{
-    Treecko = 1,
-	Torchic,
-	Mudkip,
-    pikachu
-};
-
-enum class pokemon_type {
-    fire = 1,
-    grass,
-    water,
-    electric
-};
-
 class pokemon{
     public:
         string name;
@@ -41,14 +27,14 @@ class pokemon{
             name = p_name;
             type = p_type;
             health = p_health;
-            cout << "you have selected " << name << " as starter" << endl;
+            cout << "you have selected" << name << "as starter" << endl;
         }
         //Copy Constructor
         pokemon(const pokemon &p_ref){
             name = p_ref.name;
             type = p_ref.type;
             health = p_ref.health;
-            cout << "you have selected " << name << " as starter" << endl;
+            cout << "you have selected" << name << "as starter" << endl;
         }
 
         ~pokemon(){}
@@ -62,19 +48,19 @@ class player{
         player(){
             name = "Trainer";
             pokemon();
-            cout << " create save under player name " << name << endl;
+            cout << "create save under player name" << name << endl;
         }
         //Parameter
         player(string p_name,pokemon p_chosen){
             name = p_name;
             chosen_pokemon = p_chosen;
-            cout << name << " has selected " << endl;
+            cout << name << "has selected" << endl;
         }
         //copy
         player(const player &player_ref){
             name = player_ref.name;
             chosen_pokemon = player_ref.chosen_pokemon;
-            cout << name << " has selected " << endl;
+            cout << name << "has selected" << endl;
         }
 
         //Selection
@@ -98,9 +84,10 @@ class professorOak{
         }
 
         void Oak_intro(player &player){
-            cout << "Professor Oak here , Welcome ";
+            cout << "Professor Oak here , Welcome "<< endl;
+            getline(cin,player_name);
 		    waitforinput();
-            cout << "you are entering the world of pokemon , please enter your name:" << player.name << "And what a nice name!" 
+            cout << "you are entering the world of pokemon , please enter your name:" << player_name << "And what a nice name!" 
 													                    << "\n" << "let me hand you ur first pokemon" << "\n";}
 
         void explainquest(player &player){
@@ -194,6 +181,7 @@ int main(){
 
     professorOak prof("Oak");
     player Player("May",Fire_starter);
+
     prof.Oak_intro(Player);
     prof.offerchoice(Player);
     prof.explainquest(Player);
