@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include "pokemontype.hpp"
+#include "pokemonchoice.hpp"
 using namespace std;
 
 void waitforinput(){
