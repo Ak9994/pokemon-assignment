@@ -41,14 +41,14 @@ class pokemon{
             name = p_name;
             type = p_type;
             health = p_health;
-            cout << "you have selected" << name << "as starter" << endl;
+            cout << "you have selected " << name << " as starter" << endl;
         }
         //Copy Constructor
         pokemon(const pokemon &p_ref){
             name = p_ref.name;
             type = p_ref.type;
             health = p_ref.health;
-            cout << "you have selected" << name << "as starter" << endl;
+            cout << "you have selected " << name << " as starter" << endl;
         }
 
         ~pokemon(){}
@@ -62,19 +62,19 @@ class player{
         player(){
             name = "Trainer";
             pokemon();
-            cout << "create save under player name" << name << endl;
+            cout << " create save under player name " << name << endl;
         }
         //Parameter
         player(string p_name,pokemon p_chosen){
             name = p_name;
             chosen_pokemon = p_chosen;
-            cout << name << "has selected" << endl;
+            cout << name << " has selected " << endl;
         }
         //copy
         player(const player &player_ref){
             name = player_ref.name;
             chosen_pokemon = player_ref.chosen_pokemon;
-            cout << name << "has selected" << endl;
+            cout << name << " has selected " << endl;
         }
 
         //Selection
@@ -98,23 +98,22 @@ class professorOak{
         }
 
         void Oak_intro(player &player){
-            cout << "Professor Oak here , Welcome "<< endl;
-            getline(cin,player_name);
+            cout << "Professor Oak here , Welcome ";
 		    waitforinput();
-            cout << "you are entering the world of pokemon , please enter your name:" << player_name << "And what a nice name!" 
+            cout << "you are entering the world of pokemon , please enter your name:" << player.name << "And what a nice name!" 
 													                    << "\n" << "let me hand you ur first pokemon" << "\n";}
 
         void explainquest(player &player){
             
-            cout << "Professor Oak: Oak-ay" << player.name << "!, I am about to explain you about your upcoming grand adventure.\n";
+            cout << "Professor Oak: Oak-ay" << player.name << "!, I am about to explain you about your upcoming grand adventure. \n";
             waitforinput();
-            cout << "Professor Oak: You see, becoming a Pokémon Master is no easy feat. It takes courage, wisdom, and a bit of luck!\n";
+            cout << "Professor Oak: You see, becoming a Pokémon Master is no easy feat. It takes courage, wisdom, and a bit of luck! \n";
             waitforinput();
-            cout << "Professor Oak: Your mission, should you choose to accept it—and trust me, you really don’t have a choice—is to collect all the Pokémon Badges and conquer the Pokémon League.\n";
+            cout << "Professor Oak: Your mission, should you choose to accept it and trust me," << "you really don’t have a choice is to collect all the Pokémon Badges and conquer the Pokémon League." << endl;
             waitforinput();
-            cout << "\n" << player.name << ": Wait... that sounds a lot like every other Pokémon game out there...\n";
+            cout << "\n" << player.name << ": Wait... that sounds a lot like every other Pokémon game out there... \n";
             waitforinput();
-            cout << "Professor Oak: Shhh! Don't break the fourth wall, " << player.name << "! This is serious business!\n";
+            cout << "Professor Oak: Shhh! Don't break the fourth wall, " << player.name << "! This is serious business! \n";
             waitforinput();
             cout << "\nProfessor Oak: To achieve this, you’ll need to battle wild Pokémon, challenge gym leaders, and of course, keep your Pokémon healthy at the PokeCenter." << endl;
             waitforinput();
@@ -195,7 +194,6 @@ int main(){
 
     professorOak prof("Oak");
     player Player("May",Fire_starter);
-
     prof.Oak_intro(Player);
     prof.offerchoice(Player);
     prof.explainquest(Player);
@@ -203,7 +201,10 @@ int main(){
     cout << "This Adventure is starting now" << endl;
     gameloop(Player);
     
-    
+    //header file
+    //#include "header.hpp"
+
+
     return 0;
 
 
