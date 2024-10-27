@@ -1,6 +1,6 @@
 class utility {
 public:
     static void clearConsole();
-    static void waitForEnter();
+    static void waitforinput();
     static void clearInputBuffer();
 };
