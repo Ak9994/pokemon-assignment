@@ -1,47 +1,13 @@
 #include "pokemontype.hpp"
 #include "pokemonchoice.hpp"
 #include "utility.hpp"
+#include "pokemon.hpp"
 #include "player.hpp"
 
 #include <iostream>
 #include <string>
 
 using namespace std;
-
-class pokemon{
-    public:
-        string name;
-        pokemon_type type;
-        int health = 100;
-
-        void attack() {
-        cout << name << " attacks with a powerful move!\n";
-        }   
-        //Constructor
-        pokemon(){
-            name = "pikachu";
-            type = pokemon_type::electric;
-            health = 10;
-            cout << "you have selected pikachu as starter" << endl;
-        }
-        //Parameterized Constructor
-        pokemon(string p_name,pokemon_type p_type,int p_health){
-            name = p_name;
-            type = p_type;
-            health = p_health;
-            cout << "you have selected" << name << "as starter" << endl;
-        }
-        //Copy Constructor
-        pokemon(const pokemon &p_ref){
-            name = p_ref.name;
-            type = p_ref.type;
-            health = p_ref.health;
-            cout << "you have selected" << name << "as starter" << endl;
-        }
-
-        ~pokemon(){}
-};
-
 
 class professorOak{
     public:
