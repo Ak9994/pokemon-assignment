@@ -10,7 +10,7 @@ class player{
         pokemon chosen_pokemon;
 
         player();
-        player(string p_name,pokemon p_chosen);
+        player(std::string p_name,pokemon p_chosen);
 
         void choose_pokemon(int choice);
 
