@@ -5,10 +5,6 @@
 #include "utility.hpp"
 using namespace std;
 
-void waitforinput(){
-    cin.get();
-}
-
 class pokemon{
     public:
         string name;
