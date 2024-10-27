@@ -11,7 +11,7 @@ void utility :: clearConsole() {
 #endif
 }
 
-void utility :: waitForEnter() {
+void utility :: waitforinput() {
     cin.get();
 }
 
