@@ -1,8 +1,11 @@
-#include <iostream>
-#include <string>
 #include "pokemontype.hpp"
 #include "pokemonchoice.hpp"
 #include "utility.hpp"
+#include "player.hpp"
+
+#include <iostream>
+#include <string>
+
 using namespace std;
 
 class pokemon{
@@ -39,40 +42,6 @@ class pokemon{
         ~pokemon(){}
 };
 
-class player{
-    public: 
-        string name;
-        pokemon chosen_pokemon;
-        //constructor
-        player(){
-            name = "Trainer";
-            pokemon();
-            cout << "create save under player name" << name << endl;
-        }
-        //Parameter
-        player(string p_name,pokemon p_chosen){
-            name = p_name;
-            chosen_pokemon = p_chosen;
-            cout << name << "has selected" << endl;
-        }
-        //copy
-        player(const player &player_ref){
-            name = player_ref.name;
-            chosen_pokemon = player_ref.chosen_pokemon;
-            cout << name << "has selected" << endl;
-        }
-
-        //Selection
-        void choose_pokemon(int sel){
-            switch((pokemon_choice)sel){
-		        case pokemon_choice::Treecko :{ chosen_pokemon = pokemon("Treecko",pokemon_type::grass,100);  break; }
-		        case pokemon_choice::Torchic :{ chosen_pokemon = pokemon("Torchic",pokemon_type::fire,100);   break; }
-		        case pokemon_choice::Mudkip: {  chosen_pokemon = pokemon("Mudkip",pokemon_type::water,100);   break; }
-		        default: { chosen_pokemon = pokemon("pikachu",pokemon_type::electric,100);   break;}}
-        cout << "Player " << name << " chose " <<  chosen_pokemon.name << "\n";
-        }
-        
-};
 
 class professorOak{
     public:
