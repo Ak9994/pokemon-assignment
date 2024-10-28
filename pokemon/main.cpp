@@ -1,8 +1,9 @@
+#include "utility.hpp"
 #include "pokemontype.hpp"
 #include "pokemonchoice.hpp"
-#include "utility.hpp"
 #include "pokemon.hpp"
 #include "player.hpp"
+#include "oak.hpp"
 
 #include <iostream>
 #include <string>
