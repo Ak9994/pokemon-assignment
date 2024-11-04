@@ -41,9 +41,11 @@ bool pokemon::isfaint(){
 }
 
 void pokemon::battleloop(pokemon &trainer_pokemon,pokemon &wild_pokemon){
+    cout << "A wild " << wild_pokemon.name << " appeared!\\n";
     while(!trainer_pokemon.isfaint() && !wild_pokemon.isfaint()){
-        cout << "A wild " << wild_pokemon.name << " appeared!\\n";
+        
         trainer_pokemon.attack(wild_pokemon);
+        
         if(!wild_pokemon.isfaint()){
             wild_pokemon.attack(trainer_pokemon);
         }
