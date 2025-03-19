@@ -4,11 +4,11 @@
 namespace N_pokemon {
 	namespace N_pokemons {
 
-		class Pidgey::public pokemon {
+		class charmander::public pokemon {
 		public:
-			Pidgey();
+			charmander();
 			void attack(pokemon* target);
-			void wingAttack(pokemon* target);
+			void flamethrower(pokemon* target);
 		};
 	}
 }

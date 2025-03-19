@@ -20,7 +20,7 @@ void N_main::game()
             80 };
 }
 
-void N_main::gameloop(player &Player){
+void N_main::gameloop(player* Player){
             int choice;
             bool keepPlaying = true;
             
@@ -51,10 +51,14 @@ void N_main::gameloop(player &Player){
                               break; }
                     default: { cout << "Please select right choice"; break; }
                 }
-                utility::waitforinput();
+                N_utility::waitforinput();
                 //exit loop
                 cout << "saving game now , Please dont turn off the power" << Player.name << "Cya around :) " << "\n" ;
             }
         }
+
+void N_main::~game() { delete(WildPokemon); }
+
+
 
 

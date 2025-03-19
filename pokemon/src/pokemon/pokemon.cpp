@@ -5,8 +5,8 @@ namespace N_pokemon {
     using namespace std;
 
     pokemon::pokemon() {
-        name = "Odish";
-        type = pokemon_type::grass;
+        name = "Unown";
+        type = pokemon_type::normal;
         health = 100;
         maxHP = 100;
         int atk = 30;
@@ -23,17 +23,7 @@ namespace N_pokemon {
         type = p_ref.type;
         health = p_ref.health;
     }
-    /*
-    void pokemon::attack(pokemon& target) {
-
-        int atkdamage;
-
-        cout << name << " attacks with a move! , which dealt:" << atkdamage << "dmg\n";
-
-        target.takedamage(atkdamage);
-
-    }*/
-
+    
     void pokemon::takedamage(int dmg) {
 
         health -= dmg;

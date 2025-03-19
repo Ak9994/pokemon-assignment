@@ -8,17 +8,17 @@ namespace N_pokemon {
 
 		Pidgey::Pidgey() :pokemon("pidgey", pokemon_type::normal, 100, 10) {}
 
-		void Pidgey::attack(pokemon& target) {
+		void Pidgey::attack(pokemon* target) {
 
 			int atkdamage;
 
 			cout << name << " attacks with a move! , which dealt:" << atkdamage << "dmg\n";
 
-			target.takedamage(atkdamage);
+			target->takedamage(atkdamage);
 		}
 
-		void Pidgey::wingAttack(pokemon& target) {
-			cout << name << "has hit" << target.name << "with WingAttack! , dealing" << target.takedamage(20) << "\n";
+		void Pidgey::wingAttack(pokemon* target) {
+			cout << name << "has hit" << target->name << "with WingAttack! , dealing" << target->takedamage(20) << "\n";
 		}
 	}
 }

@@ -16,7 +16,7 @@ namespace N_pokemon {
         pokemon(const pokemon& p_ref);
         ~pokemon();
 
-        //void attack(pokemon& target);
+        virtual void attack(pokemon* target);
         void takedamage(int dmg);
         bool isfaint();
 

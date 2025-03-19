@@ -8,17 +8,17 @@ namespace N_pokemon {
 
 		Pikachu::Pikachu():pokemon("pikachu", pokemon_type::electric, 100, 10) {}
 
-		void Pikachu::attack(pokemon& target) {
+		void Pikachu::attack(pokemon* target) {
 
 			int atkdamage;
 
 			cout << name << " attacks with a move! , which dealt:" << atkdamage << "dmg\n";
 
-			target.takedamage(atkdamage);
+			target->takedamage(atkdamage);
 		}
 
-		void Pikachu::thundershock(pokemon& target) {
-			cout << name << " has hit " << target.name << " with thundershock! , dealing " << target.takedamage(20) << "dmg. \n";
+		void Pikachu::thundershock(pokemon* target) {
+			cout << name << " has hit " << target->name << " with thundershock! , dealing " << target->takedamage(20) << "dmg. \n";
 		}
 	}
 }

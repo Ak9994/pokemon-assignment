@@ -7,8 +7,8 @@ namespace N_pokemon {
 		class Pikachu::public pokemon {
 		public:
 			Pikachu();
-			void attack(pokemon& target);
-			void thundershock(pokemon& target);
+			void attack(pokemon* target);
+			void thundershock(pokemon* target);
 		};
 	}
 }
