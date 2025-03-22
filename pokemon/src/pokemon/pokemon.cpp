@@ -1,37 +1,43 @@
-#include "/include/pokemon/pokemon.hpp"
 #include<iostream>
+#include<vector>
+#include "/include/pokemon/pokemon.hpp"
+
 namespace N_pokemon {
     
     using namespace std;
 
-    pokemon::pokemon();
-    pokemon::pokemon(string P_name, pokemon_type P_Type, int P_hp, int P_atk) {
+    pokemon::pokemon() {
+        name = "Unknown";
+        type = pokemon_type::normal;
+        health = 50;
+        maxHP = 50;
+    }
+
+    pokemon::pokemon(std::string P_name,pokemon_type P_type, int P_health, vector<move> P_skills) {
         name = P_name;
         type = P_type;
-        health = P_hp;
-        AtkPwr = P_atk;
-
+        health = P_health;
+        maxHP = P_health;
+        Moves = P_skills;
+        appliedEffect = nullptr;
     }
 
-    void pokemon::attack(Moves choice,pokemon* target) {
-        target->takedamage(choice.AtkPwr);
+    pokemon::pokemon(pokemon* other) {
+        name = other->name;
+        type = other->type;
+        health = other->health;
+        maxHP = other->maxHP;
+        Moves = other->Moves;
     }
     
-    void pokemon::takedamage(int dmg) {
 
-        health -= dmg;
+    void pokemon::attack(Moves choice,pokemon* target) { target->takedamage(choice.AtkPwr); }
+    
+    void pokemon::takedamage(int dmg) {   health -= dmg;  if (health < 0) { health = 0; } }
 
-        if (health < 0) { health = 0; }
+    void pokemon::heal() { health = maxHP; }
 
-    }
-
-    void pokemon::heal() {
-        health = maxHP;
-    }
-
-    bool pokemon::isfaint() {
-        if (health <= 0) return true;
-    }
+    bool pokemon::isfaint() {  if (health <= 0) return true; }
 
     void pokemon::battleloop(pokemon* trainer_pokemon, pokemon* wild_pokemon) {
         while (!trainer_pokemon->isfaint() && !wild_pokemon->isfaint()) {
@@ -91,6 +97,30 @@ namespace N_pokemon {
 
         UseMove(Sel, target);
     }
+
+    bool pokemon::canAttack() {  
+        if (appliedEffect == nullptr)
+            return true;
+        else
+            appliedEffect->turnEndEffect(this);
+    }
+
+    bool pokemon::canApplyEffect() {
+        return appliedEffect == nullptr;
+    }
+
+    void pokemon::applyEffect(statusEffects effectToApply) {
+        switch (effectToApply) {
+        case StatusEffectType::Paralysis: {
+            appliedEffect = new Paralysis();
+            appliedEffect->applyEffect(this);
+            break;
+        }
+        default: appliedEffect = nullptr;
+        }
+    }
+
+    void pokemon::clearEffect() { appliedEffect = nullptr; }
 
     pokemon::~pokemon() {}
 }

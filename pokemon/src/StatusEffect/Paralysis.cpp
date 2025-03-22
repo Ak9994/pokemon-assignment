@@ -24,15 +24,15 @@ namespace N_pokemon {
             if (turnsLeft <= 0) { clearEffect(target); return true; }
             turnsLeft--;
 
-            int paralysis_chance = rand() % 4;
+            int paralysisChance = rand() % 4;
 
-            if (paralysis_chance == 0)
+            if (paralysisChance == 0)
             {
                 std::cout << target->name << " is paralyzed! It can't move!\n";
                 return false;
             }
 
-            std::cout << target->name << " shakes off the paralysis momentarily and can move!\n";
+            std::cout << target->name << " can move! and able to attack! \n";
             return true;
         }
     }
