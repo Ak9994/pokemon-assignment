@@ -4,10 +4,10 @@
 namespace N_pokemon {
 	namespace N_pokemons {
 
-		class charmander::public pokemon {
+		class squirtle::public pokemon {
 		public:
-			charmander();
-			void attack(pokemon* target) override;
+			squirtle();
+			void attack(Moves choice,pokemon* target) override;
 		};
 	}
 }

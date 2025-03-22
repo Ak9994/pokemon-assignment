@@ -4,6 +4,9 @@ namespace N_pokemon {
 		Treecko = 1,
 		Torchic,
 		Mudkip,
-		pikachu
+		pikachu,
+		charmander,
+		squirtle,
+		bulbasaur
 	};
 }

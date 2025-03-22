@@ -8,7 +8,6 @@ namespace N_pokemon {
 		public:
 			Pidgey();
 			void attack(pokemon* target);
-			void wingAttack(pokemon* target);
 		};
 	}
 }

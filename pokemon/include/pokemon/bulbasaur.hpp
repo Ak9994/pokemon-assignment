@@ -4,12 +4,11 @@
 namespace N_pokemon {
 	namespace N_pokemons {
 
-		class charmander::public pokemon {
+		class bulbasaur::public pokemon {
 		public:
-			charmander();
+			bulbasaur();
 			void attack(pokemon* target) override;
-		};
-	}
+		}
 }
 
 

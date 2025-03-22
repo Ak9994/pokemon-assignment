@@ -6,19 +6,21 @@ namespace N_pokemon {
 	namespace N_pokemons {
 		using namespace std;
 
-		Zubat::Zubat():pokemon("Zubat", pokemon_type::flying, 100, 10) {}
+		Zubat::Zubat():pokemon() {}
+		
+		void Zubat::attack(Moves choice,pokemon* target) { 
+			pokemon::attack(choice,target); 
+			if (choice.name == "LEECH LIFE")
+			{
+				// Restore 50% of the damage dealt
+				this->health += choice.power * 0.5;
 
-		void Zubat::attack(pokemon* target) {
+				// Ensure health does not exceed maxHealth
+				if (this->health > this->maxHealth)
+					this->health = this->maxHealth;
 
-			int atkdamage;
-
-			cout << name << " attacks with a move! , which dealt:" << atkdamage << "dmg\n";
-
-			target->takedamage(atkdamage);
-		}
-
-		void Zubat::Supersonic(pokemon* target) {
-			cout << name << "has hit" << target->name << "with Supersonic! , dealing" << target->takedamage(20) << "\n";
+				std::cout << " has regained health!\n";
+			}
 		}
 	}
 }

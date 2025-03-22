@@ -4,24 +4,17 @@ namespace N_pokemon {
     
     using namespace std;
 
-    pokemon::pokemon() {
-        name = "Unown";
-        type = pokemon_type::normal;
-        health = 100;
-        maxHP = 100;
-        int atk = 30;
+    pokemon::pokemon();
+    pokemon::pokemon(string P_name, pokemon_type P_Type, int P_hp, int P_atk) {
+        name = P_name;
+        type = P_type;
+        health = P_hp;
+        AtkPwr = P_atk;
+
     }
 
-    pokemon::pokemon(string p_name, pokemon_type p_type, int p_health) {
-        name = p_name;
-        type = p_type;
-        health = p_health;
-    }
-
-    pokemon::pokemon(const pokemon& p_ref) {
-        name = p_ref.name;
-        type = p_ref.type;
-        health = p_ref.health;
+    void pokemon::attack(Moves choice,pokemon* target) {
+        target->takedamage(choice.AtkPwr);
     }
     
     void pokemon::takedamage(int dmg) {
@@ -40,20 +33,63 @@ namespace N_pokemon {
         if (health <= 0) return true;
     }
 
-    void pokemon::battleloop(pokemon& trainer_pokemon, pokemon& wild_pokemon) {
-        while (!trainer_pokemon.isfaint() && !wild_pokemon.isfaint()) {
-            trainer_pokemon.attack(wild_pokemon);
-            if (!wild_pokemon.isfaint()) {
-                wild_pokemon.attack(trainer_pokemon);
+    void pokemon::battleloop(pokemon* trainer_pokemon, pokemon* wild_pokemon) {
+        while (!trainer_pokemon->isfaint() && !wild_pokemon->isfaint()) {
+            trainer_pokemon->attack(wild_pokemon);
+            if (!wild_pokemon->isfaint()) {
+                wild_pokemon->attack(trainer_pokemon);
             }
         }
 
-        if (trainer_pokemon.isfaint()) {
-            cout << trainer_pokemon.name << "has fainted !!! \n";
+        if (trainer_pokemon->isfaint()) {
+            cout << trainer_pokemon->name << "has fainted !!! \n";
         }
         else {
-            cout << wild_pokemon.name << "has fainted. \n";
+            cout << wild_pokemon->name << "has fainted. \n";
         }
+    }
+
+    void pokemon::PrintAvailableMoves() {
+        cout << name << "available moves are: \n";
+        for (size_t i = 0; i < Moves[i].size; i++) {
+            cout << i + 1 << ":" << Moves[i].name << "(Power:" << Moves[i].AtkPwr << ") \n";
+        }
+    }
+
+    void pokemon::SelectMove() {
+        int choice;
+        cout << "Choose a move: ";
+        cin >> choice;
+
+        while (choice < 1 || choice > static_cast<int>(Moves.size())) {
+            cout << "Invalid choice. Try again: ";
+            cin >> choice;
+        }
+        return choice;
+    }
+
+    void pokemon::UseMove(Moves Selection, pokemon* target) {
+        cout << name << "has used" << Selection.Name << "\n";
+        attack(Selection, target);
+
+        N_utility::utility:waitforinput();
+        cout << "....\n";
+        N_utility::utility:waitforinput();
+
+        if (target->isfaint()) {
+            cout << target->name << " fainted! \n";
+        else
+            cout << target->name << " has HP left " << target->health << "\n";
+        }
+    }
+
+    void pokemon::SelectUseMove(pokemon* target) {
+        PrintAvailableMoves();
+
+        int ch = SelectMove()
+        Moves Sel = move[ch - 1];
+
+        UseMove(Sel, target);
     }
 
     pokemon::~pokemon() {}

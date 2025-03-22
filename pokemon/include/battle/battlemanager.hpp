@@ -9,31 +9,32 @@ namespace N_battle {
 
     class battlemanager {
     public:
-        void startbattle(player& Player, pokemon& wild_encounter);
+        void startbattle(player* Player, pokemon* wild_encounter);
     private:
         battlestate BattleState;
         void battle();
         void updatebattle();
         void battleoutcome();
+        
     };
 
-    void battlemanager::startbattle(player& playerpokemon, pokemon& wildpokemon) {
-        BattleState.playerpokemon = &player.chosen_pokemon;
-        BattleState.wildpokemon = &wildpokemon;
-        BattleState.Play_turn = true;
-        BattleState.Ongoing = true;
+    void battlemanager::startbattle(player* playerpokemon, pokemon* wildpokemon) {
+        BattleState->playerpokemon = player->chosen_pokemon;
+        BattleState->wildpokemon = wildpokemon;
+        BattleState->Play_turn = true;
+        BattleState->Ongoing = true;
 
-        cout << "A Wild Pokemon" << wildpokemon.name << "! , has appeared \n";
+        cout << "A Wild Pokemon" << wildpokemon->name << "! , has appeared \n";
     }
 
     void battlemanager::battle() {
         while (BattleState.Ongoing) {
 
             if (BattleState.Play_turn) {
-                BattleState.player->attack(*BattleState.wild);
+                BattleState.player->SelectUseMove(BattleState.wildpokemon);
             }
             else {
-                BattleState.wild->attack(*BattleState.player);
+                BattleState.wildpokemon->SelectUseMove(BattleState.wildpokemon);
             }
 
             updatebattle();
@@ -55,6 +56,7 @@ namespace N_battle {
         if (BattleState.playerpokemon->isfaint()) { cout << BattleState.playerpokemon->name << "has fainted , player whited out" << "\n"; }
         else { cout << BattleState.wildpokemon->name << "has fainted , gained XP" << "\n"; }
     }
+
 
 }
 

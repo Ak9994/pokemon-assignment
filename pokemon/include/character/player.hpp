@@ -1,6 +1,5 @@
-#include "pokemontype.hpp"
-#include "pokemonchoice.hpp"
-#include "utility.hpp"
+#include "include/pokemon/pokemon.hpp"
+#include "include/utility/utility.hpp"
 #include <string>
 
 namespace N_player {
@@ -9,8 +8,7 @@ namespace N_player {
         string name;
         pokemon chosen_pokemon;
 
-        player();
-        player(string p_name, pokemon p_chosen);
+        player(string p_name);
 
         void choose_pokemon(int choice);
 

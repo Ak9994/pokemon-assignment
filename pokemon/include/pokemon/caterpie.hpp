@@ -7,8 +7,7 @@ namespace N_pokemon {
 		class Caterpie::public pokemon {
 		public:
 			Caterpie();
-			void attack(pokemon* target);
-			void BugBite(pokemon* target);
+			void attack(Moves Choice,pokemon* target);
 		};
 	}
 }

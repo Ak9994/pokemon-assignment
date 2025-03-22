@@ -1,6 +1,5 @@
-using namespace N_status {
-
-	class IStatusEffect {
+=   
+    class IStatusEffect {
         
         virtual void applyEffect(Pokemon* target) = 0;
 
@@ -13,4 +12,3 @@ using namespace N_status {
         virtual ~IStatusEffect() = default;
 
 	};
-}

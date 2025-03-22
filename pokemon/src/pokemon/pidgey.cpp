@@ -7,18 +7,16 @@ namespace N_pokemon {
 		using namespace std;
 
 		Pidgey::Pidgey() :pokemon("pidgey", pokemon_type::normal, 100, 10) {}
-
-		void Pidgey::attack(pokemon* target) {
-
-			int atkdamage;
-
-			cout << name << " attacks with a move! , which dealt:" << atkdamage << "dmg\n";
-
-			target->takedamage(atkdamage);
-		}
-
-		void Pidgey::wingAttack(pokemon* target) {
-			cout << name << "has hit" << target->name << "with WingAttack! , dealing" << target->takedamage(20) << "\n";
+		void Pidgey::attack(Moves choice,pokemon* target) { 
+			pokemon::attack(choice,target); 
+			if (choice.name == "GUST")
+			{
+				if (rand() % 100 < 20)
+				{
+					std::cout << "...Battle ends!\n";
+					N_Battle::battlemanager::stopBattle();
+					N_Utility::utility::waitforinput();
+				}
 		}
 	}
 }

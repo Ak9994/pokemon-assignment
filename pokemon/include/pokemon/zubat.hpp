@@ -7,8 +7,7 @@ namespace N_pokemon {
 		class Zubat::public pokemon {
 		public:
 			Zubat();
-			void attack(pokemon* target);
-			void Supersonic(pokemon* target);
+			void attack(Moves choice,pokemon* target) override;
 		};
 	}
 }
